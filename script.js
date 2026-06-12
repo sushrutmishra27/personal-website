@@ -70,6 +70,29 @@ window.addEventListener('keydown', e => {
   if (item) window.location.href = item.getAttribute('href');
 });
 
+/* ---- contact: host local time + copy email ---- */
+(function contactBits() {
+  const t = document.getElementById('localTime');
+  function fmtTime() {
+    if (!t) return;
+    const s = new Intl.DateTimeFormat('en-US', { timeZone: HOST_TZ, hour: 'numeric', minute: '2-digit', hour12: true })
+      .format(new Date());
+    t.textContent = 'My local time: ' + s.replace(' ', '').toLowerCase();
+  }
+  fmtTime();
+  setInterval(fmtTime, 30 * 1000);
+
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const val = btn.getAttribute('data-copy');
+      if (navigator.clipboard) navigator.clipboard.writeText(val);
+      const label = btn.querySelector('.clabel');
+      if (label) { const old = label.textContent; label.textContent = 'Copied'; setTimeout(() => label.textContent = old, 1500); }
+    });
+  });
+})();
+
 /* ---- GitHub contribution-graph graphic (projects page) ---- */
 (function buildGitHubGraph() {
   const el = document.getElementById('ghGraph');
