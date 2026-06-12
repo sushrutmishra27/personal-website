@@ -69,3 +69,29 @@ window.addEventListener('keydown', e => {
   const item = navItems.find(n => n.querySelector('.num')?.textContent === '0' + e.key);
   if (item) window.location.href = item.getAttribute('href');
 });
+
+/* ---- GitHub contribution-graph graphic (projects page) ---- */
+(function buildGitHubGraph() {
+  const el = document.getElementById('ghGraph');
+  if (!el) return;
+  const cols = 19, rows = 7, cell = 12, gap = 4, step = cell + gap, W = 320, H = 180;
+  const gridW = cols * step - gap, gridH = rows * step - gap;
+  const ox = (W - gridW) / 2, oy = (H - gridH) / 2;
+  const shades = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']; // GitHub dark palette
+  let cells = '';
+  for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++) {
+      // deterministic pseudo-random intensity, weighted toward fewer commits
+      const n = Math.abs(Math.sin((c + 1) * 12.9898 + (r + 1) * 78.233) * 43758.5453);
+      const f = n - Math.floor(n);
+      let lvl = 0;
+      if (f > 0.50) lvl = 1;
+      if (f > 0.70) lvl = 2;
+      if (f > 0.85) lvl = 3;
+      if (f > 0.94) lvl = 4;
+      const x = (ox + c * step).toFixed(1), y = (oy + r * step).toFixed(1);
+      cells += `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="3" fill="${shades[lvl]}"/>`;
+    }
+  }
+  el.innerHTML = `<svg class="scene" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="${W}" height="${H}" fill="#0d1117"/>${cells}</svg>`;
+})();
