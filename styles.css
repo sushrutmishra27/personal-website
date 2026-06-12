@@ -301,9 +301,20 @@ a.card { display: block; }
 .pcard p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
 .pcard .plink { margin-top: auto; padding-top: 14px; font-size: 0.82rem; color: var(--text); }
 .pcard:hover .plink { text-decoration: underline; }
-.pcard .links { margin-top: auto; padding-top: 12px; }
+.pcard .links { margin-top: auto; padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.pcard .links a { font-size: 0.82rem; color: var(--text); text-decoration: none; }
+.pcard .links a:hover { text-decoration: underline; }
 .pcard.soon { opacity: .7; }
 @media (max-width: 640px) { .pgrid { grid-template-columns: 1fr; } }
+
+/* playful monochrome pattern graphics for card thumbnails */
+.thumb.pat { background-color: var(--bg-elev); }
+.pat-dots   { background-image: radial-gradient(var(--gline) 1.5px, transparent 1.6px); background-size: 16px 16px; }
+.pat-grid   { background-image: linear-gradient(var(--gline) 1px, transparent 1px), linear-gradient(90deg, var(--gline) 1px, transparent 1px); background-size: 20px 20px; }
+.pat-diag   { background-image: repeating-linear-gradient(45deg, var(--gline) 0 1px, transparent 1px 11px); }
+.pat-rings  { background-image: repeating-radial-gradient(circle at 50% 50%, var(--gline) 0 1px, transparent 1px 13px); }
+.pat-bars   { background-image: repeating-linear-gradient(90deg, var(--gline) 0 2px, transparent 2px 15px); }
+.pat-checker{ background-image: conic-gradient(var(--gline) 25%, transparent 0 50%, var(--gline) 0 75%, transparent 0); background-size: 22px 22px; }
 
 /* keyboard shortcut tip bar (top of home content) */
 .topbar {
