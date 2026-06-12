@@ -264,7 +264,30 @@ section { margin-bottom: 80px; }
 .card .metric .m span { font-size: 0.74rem; color: var(--text-faint); display: block; }
 .card .card-link { margin-top: 14px; font-size: 0.82rem; color: var(--text); display: inline-block; }
 .card:hover .card-link { text-decoration: underline; }
+a.card { display: block; }
+
+/* compact metric chips (handles many stats per card) */
+.metrics-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.metrics-list span {
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim);
+  border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; background: var(--bg-elev);
+}
+.metrics-list span b { color: var(--text); font-weight: 700; }
+
+/* multiple links within a card (case studies, videos) */
+.card .links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 14px; }
+.card .links a { font-size: 0.8rem; color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.card .links a:hover { opacity: .7; }
+
 @media (max-width: 640px) { .cards.two { grid-template-columns: 1fr; } }
+
+/* keyboard shortcut hint (home) */
+.kbd-hint { margin-top: 16px; font-size: 0.82rem; color: var(--text-dim); }
+.kbd-hint kbd {
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--text);
+  border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px;
+  padding: 1px 6px; background: var(--bg-elev); margin: 0 1px;
+}
 
 /* ----- LIST ROWS (writing / reading / toolkit) ----- */
 .list-row {
