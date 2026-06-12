@@ -307,14 +307,26 @@ a.card { display: block; }
 .pcard.soon { opacity: .7; }
 @media (max-width: 640px) { .pgrid { grid-template-columns: 1fr; } }
 
-/* playful monochrome pattern graphics for card thumbnails */
-.thumb.pat { background-color: var(--bg-elev); }
-.pat-dots   { background-image: radial-gradient(var(--gline) 1.5px, transparent 1.6px); background-size: 16px 16px; }
-.pat-grid   { background-image: linear-gradient(var(--gline) 1px, transparent 1px), linear-gradient(90deg, var(--gline) 1px, transparent 1px); background-size: 20px 20px; }
-.pat-diag   { background-image: repeating-linear-gradient(45deg, var(--gline) 0 1px, transparent 1px 11px); }
-.pat-rings  { background-image: repeating-radial-gradient(circle at 50% 50%, var(--gline) 0 1px, transparent 1px 13px); }
-.pat-bars   { background-image: repeating-linear-gradient(90deg, var(--gline) 0 2px, transparent 2px 15px); }
-.pat-checker{ background-image: conic-gradient(var(--gline) 25%, transparent 0 50%, var(--gline) 0 75%, transparent 0); background-size: 22px 22px; }
+/* funky colourful graphics for project thumbnails (distinct per card) */
+.pcard .thumb { position: relative; }
+.pcard .thumb.gfx::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.22) 1px, transparent 1.6px);
+  background-size: 13px 13px; mix-blend-mode: overlay;
+}
+.pcard:hover .thumb.gfx { filter: saturate(1.18); }
+.gfx-1  { background: radial-gradient(120% 120% at 15% 20%, #ff8a5b 0%, transparent 55%), radial-gradient(120% 120% at 85% 15%, #ffd23f 0%, transparent 50%), linear-gradient(135deg, #ff5d8f, #8a4fff); }
+.gfx-2  { background: radial-gradient(120% 120% at 20% 25%, #4dd4ff 0%, transparent 55%), radial-gradient(110% 110% at 80% 80%, #5b8cff 0%, transparent 55%), linear-gradient(135deg, #18e1c3, #4361ee); }
+.gfx-3  { background: radial-gradient(120% 120% at 80% 20%, #ff6ec7 0%, transparent 55%), linear-gradient(135deg, #7b2ff7, #f107a3); }
+.gfx-4  { background: radial-gradient(120% 120% at 25% 80%, #b8f24d 0%, transparent 55%), linear-gradient(135deg, #00b894, #00cec9); }
+.gfx-5  { background: radial-gradient(120% 120% at 20% 20%, #ffd23f 0%, transparent 50%), radial-gradient(120% 120% at 80% 70%, #ff5d8f 0%, transparent 55%), linear-gradient(135deg, #ff7b54, #9b5de5); }
+.gfx-6  { background: radial-gradient(120% 120% at 80% 25%, #56ccf2 0%, transparent 55%), linear-gradient(135deg, #2f80ed, #3a0ca3); }
+.gfx-7  { background: radial-gradient(120% 120% at 25% 25%, #fff35b 0%, transparent 50%), radial-gradient(120% 120% at 75% 80%, #5bffb0 0%, transparent 55%), linear-gradient(135deg, #ff6ec7, #ffa45b); }
+.gfx-8  { background: radial-gradient(120% 120% at 80% 20%, #c77dff 0%, transparent 55%), linear-gradient(135deg, #5a189a, #240046); }
+.gfx-9  { background: radial-gradient(120% 120% at 20% 80%, #ffe45b 0%, transparent 55%), linear-gradient(135deg, #06d6a0, #118ab2); }
+.gfx-10 { background: radial-gradient(120% 120% at 25% 25%, #ff5b5b 0%, transparent 50%), radial-gradient(120% 120% at 80% 75%, #ff2e9a 0%, transparent 55%), linear-gradient(135deg, #ff7b00, #d00000); }
+.gfx-11 { background: radial-gradient(120% 120% at 20% 25%, #5bffd0 0%, transparent 55%), linear-gradient(135deg, #00b4d8, #7209b7); }
+.gfx-12 { background: radial-gradient(120% 120% at 25% 20%, #ffd23f 0%, transparent 50%), radial-gradient(120% 120% at 80% 80%, #ff4d6d 0%, transparent 55%), linear-gradient(135deg, #ff9e00, #ff006e); }
 
 /* keyboard shortcut tip bar (top of home content) */
 .topbar {
