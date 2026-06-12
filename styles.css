@@ -315,18 +315,18 @@ a.card { display: block; }
   background-size: 13px 13px; mix-blend-mode: overlay;
 }
 .pcard:hover .thumb.gfx { filter: saturate(1.18); }
-.gfx-1  { background: radial-gradient(120% 120% at 15% 20%, #ff8a5b 0%, transparent 55%), radial-gradient(120% 120% at 85% 15%, #ffd23f 0%, transparent 50%), linear-gradient(135deg, #ff5d8f, #8a4fff); }
-.gfx-2  { background: radial-gradient(120% 120% at 20% 25%, #4dd4ff 0%, transparent 55%), radial-gradient(110% 110% at 80% 80%, #5b8cff 0%, transparent 55%), linear-gradient(135deg, #18e1c3, #4361ee); }
-.gfx-3  { background: radial-gradient(120% 120% at 80% 20%, #ff6ec7 0%, transparent 55%), linear-gradient(135deg, #7b2ff7, #f107a3); }
-.gfx-4  { background: radial-gradient(120% 120% at 25% 80%, #b8f24d 0%, transparent 55%), linear-gradient(135deg, #00b894, #00cec9); }
-.gfx-5  { background: radial-gradient(120% 120% at 20% 20%, #ffd23f 0%, transparent 50%), radial-gradient(120% 120% at 80% 70%, #ff5d8f 0%, transparent 55%), linear-gradient(135deg, #ff7b54, #9b5de5); }
-.gfx-6  { background: radial-gradient(120% 120% at 80% 25%, #56ccf2 0%, transparent 55%), linear-gradient(135deg, #2f80ed, #3a0ca3); }
-.gfx-7  { background: radial-gradient(120% 120% at 25% 25%, #fff35b 0%, transparent 50%), radial-gradient(120% 120% at 75% 80%, #5bffb0 0%, transparent 55%), linear-gradient(135deg, #ff6ec7, #ffa45b); }
-.gfx-8  { background: radial-gradient(120% 120% at 80% 20%, #c77dff 0%, transparent 55%), linear-gradient(135deg, #5a189a, #240046); }
-.gfx-9  { background: radial-gradient(120% 120% at 20% 80%, #ffe45b 0%, transparent 55%), linear-gradient(135deg, #06d6a0, #118ab2); }
-.gfx-10 { background: radial-gradient(120% 120% at 25% 25%, #ff5b5b 0%, transparent 50%), radial-gradient(120% 120% at 80% 75%, #ff2e9a 0%, transparent 55%), linear-gradient(135deg, #ff7b00, #d00000); }
-.gfx-11 { background: radial-gradient(120% 120% at 20% 25%, #5bffd0 0%, transparent 55%), linear-gradient(135deg, #00b4d8, #7209b7); }
-.gfx-12 { background: radial-gradient(120% 120% at 25% 20%, #ffd23f 0%, transparent 50%), radial-gradient(120% 120% at 80% 80%, #ff4d6d 0%, transparent 55%), linear-gradient(135deg, #ff9e00, #ff006e); }
+.pcard .thumb.gfx-1  { background: radial-gradient(120% 120% at 15% 20%, #ff8a5b 0%, transparent 55%), radial-gradient(120% 120% at 85% 15%, #ffd23f 0%, transparent 50%), linear-gradient(135deg, #ff5d8f, #8a4fff); }
+.pcard .thumb.gfx-2  { background: radial-gradient(120% 120% at 20% 25%, #4dd4ff 0%, transparent 55%), radial-gradient(110% 110% at 80% 80%, #5b8cff 0%, transparent 55%), linear-gradient(135deg, #18e1c3, #4361ee); }
+.pcard .thumb.gfx-3  { background: radial-gradient(120% 120% at 80% 20%, #ff6ec7 0%, transparent 55%), linear-gradient(135deg, #7b2ff7, #f107a3); }
+.pcard .thumb.gfx-4  { background: radial-gradient(120% 120% at 25% 80%, #b8f24d 0%, transparent 55%), linear-gradient(135deg, #00b894, #00cec9); }
+.pcard .thumb.gfx-5  { background: radial-gradient(120% 120% at 20% 20%, #ffd23f 0%, transparent 50%), radial-gradient(120% 120% at 80% 70%, #ff5d8f 0%, transparent 55%), linear-gradient(135deg, #ff7b54, #9b5de5); }
+.pcard .thumb.gfx-6  { background: radial-gradient(120% 120% at 80% 25%, #56ccf2 0%, transparent 55%), linear-gradient(135deg, #2f80ed, #3a0ca3); }
+.pcard .thumb.gfx-7  { background: radial-gradient(120% 120% at 25% 25%, #fff35b 0%, transparent 50%), radial-gradient(120% 120% at 75% 80%, #5bffb0 0%, transparent 55%), linear-gradient(135deg, #ff6ec7, #ffa45b); }
+.pcard .thumb.gfx-8  { background: radial-gradient(120% 120% at 80% 20%, #c77dff 0%, transparent 55%), linear-gradient(135deg, #5a189a, #240046); }
+.pcard .thumb.gfx-9  { background: radial-gradient(120% 120% at 20% 80%, #ffe45b 0%, transparent 55%), linear-gradient(135deg, #06d6a0, #118ab2); }
+.pcard .thumb.gfx-10 { background: radial-gradient(120% 120% at 25% 25%, #ff5b5b 0%, transparent 50%), radial-gradient(120% 120% at 80% 75%, #ff2e9a 0%, transparent 55%), linear-gradient(135deg, #ff7b00, #d00000); }
+.pcard .thumb.gfx-11 { background: radial-gradient(120% 120% at 20% 25%, #5bffd0 0%, transparent 55%), linear-gradient(135deg, #00b4d8, #7209b7); }
+.pcard .thumb.gfx-12 { background: radial-gradient(120% 120% at 25% 20%, #ffd23f 0%, transparent 50%), radial-gradient(120% 120% at 80% 80%, #ff4d6d 0%, transparent 55%), linear-gradient(135deg, #ff9e00, #ff006e); }
 
 /* keyboard shortcut tip bar (top of home content) */
 .topbar {
