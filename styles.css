@@ -397,9 +397,9 @@ a.card { display: block; }
 
 /* keyboard shortcut tip bar (top of home content) */
 .topbar {
-  display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap;
+  display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap;
   border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev);
-  padding: 5px 13px; font-size: 0.74rem; color: var(--text-dim); margin-bottom: 22px; text-align: center;
+  padding: 5px 13px; font-size: 0.74rem; color: var(--text-dim); margin-bottom: 22px;
 }
 kbd {
   font-family: var(--font-mono); font-size: 0.72rem; color: var(--text);
