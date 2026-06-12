@@ -281,12 +281,16 @@ a.card { display: block; }
 
 @media (max-width: 640px) { .cards.two { grid-template-columns: 1fr; } }
 
-/* keyboard shortcut hint (home) */
-.kbd-hint { margin-top: 16px; font-size: 0.82rem; color: var(--text-dim); }
-.kbd-hint kbd {
+/* keyboard shortcut tip bar (top of home content) */
+.topbar {
+  display: flex; justify-content: center; align-items: center; gap: 7px; flex-wrap: wrap;
+  border: 1px solid var(--border); border-radius: 999px; background: var(--bg-elev);
+  padding: 8px 16px; font-size: 0.78rem; color: var(--text-dim); margin-bottom: 46px; text-align: center;
+}
+kbd {
   font-family: var(--font-mono); font-size: 0.72rem; color: var(--text);
   border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px;
-  padding: 1px 6px; background: var(--bg-elev); margin: 0 1px;
+  padding: 1px 6px; background: var(--bg-card); margin: 0 1px;
 }
 
 /* ----- LIST ROWS (writing / reading / toolkit) ----- */
