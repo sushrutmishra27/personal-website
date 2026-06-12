@@ -445,6 +445,37 @@ kbd {
 .quote .who span { font-size: 0.75rem; color: var(--text-faint); }
 @media (max-width: 640px) { .quotes { grid-template-columns: 1fr; } }
 
+/* ----- KIND WORDS WALL (masonry) ----- */
+.kw-group { margin-bottom: 16px; }
+.kw-group-head { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 18px; }
+.kw-group-head h2 { font-size: 0.98rem; font-weight: 600; }
+.kw-group-head .count { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint); }
+.kw-wall { columns: 2; column-gap: 16px; }
+.kw-card {
+  break-inside: avoid; -webkit-column-break-inside: avoid;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card);
+  padding: 22px; margin: 0 0 16px; transition: var(--transition);
+}
+.kw-card:hover { border-color: var(--text); }
+.kw-card .stars { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text); margin-bottom: 11px; letter-spacing: .04em; }
+.kw-card .q { font-size: 0.92rem; color: var(--text); line-height: 1.62; }
+.kw-card .who { display: flex; align-items: center; gap: 11px; margin-top: 17px; }
+.kw-card .who .av {
+  width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 0.7rem; color: #fff; flex-shrink: 0;
+}
+.kw-card .who b { font-size: 0.85rem; display: block; line-height: 1.2; }
+.kw-card .who .role { font-size: 0.74rem; color: var(--text-faint); display: block; }
+.kw-card .meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-faint); margin-top: 12px; }
+/* playful colourful avatar tiles, cycling */
+.kw-wall .kw-card:nth-child(6n+1) .av { background: linear-gradient(135deg,#5c7cfa,#4263eb); }
+.kw-wall .kw-card:nth-child(6n+2) .av { background: linear-gradient(135deg,#f06595,#e64980); }
+.kw-wall .kw-card:nth-child(6n+3) .av { background: linear-gradient(135deg,#ff922b,#f76707); }
+.kw-wall .kw-card:nth-child(6n+4) .av { background: linear-gradient(135deg,#20c997,#0ca678); }
+.kw-wall .kw-card:nth-child(6n+5) .av { background: linear-gradient(135deg,#9775fa,#7048e8); }
+.kw-wall .kw-card:nth-child(6n+6) .av { background: linear-gradient(135deg,#3bc9db,#1098ad); }
+@media (max-width: 640px) { .kw-wall { columns: 1; } }
+
 /* ----- FOOTER CTA ----- */
 .footer-cta {
   border: 1px solid var(--border); border-radius: 20px; padding: 48px 40px; text-align: center;
