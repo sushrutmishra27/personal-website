@@ -439,6 +439,7 @@ kbd {
 .list-row .body h3 { font-size: 0.95rem; font-weight: 600; }
 .list-row .body p { font-size: 0.84rem; color: var(--text-dim); margin-top: 3px; }
 .list-row .ext { margin-left: auto; color: var(--text-faint); font-size: 0.85rem; }
+.list-row .ldate { margin-left: auto; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint); flex-shrink: 0; white-space: nowrap; padding-left: 14px; }
 .list-group { margin-bottom: 46px; }
 
 /* ----- TOOL CHIPS (skills & toolkit) ----- */
