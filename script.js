@@ -62,22 +62,74 @@ const rev = new IntersectionObserver(entries => {
 }, { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(s => rev.observe(s));
 
-/* ---- press number keys 1–9 to jump between pages ---- */
+/* ---- contact modal: injected once, opened from nav Contact / key 9 ---- */
+(function contactModal() {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.id = 'contactModal';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = `
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Contact">
+      <button class="modal-close" type="button" aria-label="Close">&times;</button>
+      <div class="section-head"><h2>Contact</h2></div>
+      <p class="contact-time js-localtime">My local time: loading…</p>
+      <div class="contact-row">
+        <div class="cr-body"><h3>Email</h3><p>Always happy to help.</p></div>
+        <div class="cr-actions">
+          <a class="cbtn" href="mailto:sushrutmishra27@gmail.com"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Compose</a>
+          <button class="cbtn" type="button" data-copy="sushrutmishra27@gmail.com"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg> <span class="clabel">Copy</span></button>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="cr-body"><h3>Developer Turned Marketer</h3><p>My newsletter, 550+ subscribers, on marketing, content, and the dev-to-marketing life.</p></div>
+        <div class="cr-actions">
+          <a class="cbtn" href="https://sushrut27.substack.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> Subscribe</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="cr-body"><h3>Stay in touch</h3><p>I'm most responsive on LinkedIn.</p></div>
+        <div class="cr-socials">
+          <a href="https://x.com/SushrutKM" target="_blank" rel="noopener"><span class="sicon x"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 3l7 8.5L3.5 21H6l5.2-6.3L16 21h5l-7.4-9L20.5 3H18l-4.8 5.8L8.8 3z"/></svg></span> X</a>
+          <a href="https://www.linkedin.com/in/sushrutkm/" target="_blank" rel="noopener"><span class="sicon li"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M4.5 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zM3 8.2h3V20H3zM9 8.2h2.85v1.6h.04c.4-.74 1.45-1.52 2.98-1.52 3.2 0 3.78 2.06 3.78 4.74V20h-3v-5.2c0-1.24-.02-2.84-1.74-2.84-1.74 0-2 1.35-2 2.75V20H9z"/></svg></span> LinkedIn</a>
+          <a href="https://github.com/sushrutmishra27" target="_blank" rel="noopener"><span class="sicon gh"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.2-4.5-1.1-4.5-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.3 4.8-4.5 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></span> GitHub</a>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const open = () => { overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); };
+  const close = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); };
+  window.openContact = open;
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  overlay.querySelector('.modal-close').addEventListener('click', close);
+  window.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // any nav item that points at the email opens the modal instead
+  document.querySelectorAll('.nav-item').forEach(a => {
+    if ((a.getAttribute('href') || '').startsWith('mailto:')) {
+      a.addEventListener('click', e => { e.preventDefault(); open(); });
+    }
+  });
+})();
+
+/* ---- press number keys 1–9 to jump between pages (9 = open contact) ---- */
 const navItems = [...document.querySelectorAll('.nav-item')];
 window.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
   const item = navItems.find(n => n.querySelector('.num')?.textContent === '0' + e.key);
-  if (item) window.location.href = item.getAttribute('href');
+  if (!item) return;
+  const href = item.getAttribute('href') || '';
+  if (href.startsWith('mailto:')) { if (window.openContact) window.openContact(); }
+  else window.location.href = href;
 });
 
-/* ---- contact: host local time + copy email ---- */
+/* ---- contact: host local time + copy email (works on page + modal) ---- */
 (function contactBits() {
-  const t = document.getElementById('localTime');
   function fmtTime() {
-    if (!t) return;
     const s = new Intl.DateTimeFormat('en-US', { timeZone: HOST_TZ, hour: 'numeric', minute: '2-digit', hour12: true })
       .format(new Date());
-    t.textContent = 'My local time: ' + s.replace(' ', '').toLowerCase();
+    const txt = 'My local time: ' + s.replace(' ', '').toLowerCase();
+    document.querySelectorAll('.js-localtime').forEach(el => el.textContent = txt);
   }
   fmtTime();
   setInterval(fmtTime, 30 * 1000);
