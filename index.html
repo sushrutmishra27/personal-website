@@ -1,208 +1,295 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sushrut Mishra · Developer turned Marketer</title>
+<title>Sushrut KM — Developer turned Marketer</title>
+<meta name="description" content="Sushrut KM. Developer turned marketer. Head of Growth & Content at Devable.ai. Content, SEO, and founder-led brand for developer-first companies." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v2.css" />
 </head>
-<body data-page="home">
-  <button class="menu-btn" id="menuBtn">☰</button>
-  <div class="layout">
+<body>
 
-    <!-- ============ SIDEBAR ============ -->
-    <aside class="sidebar" id="sidebar">
-      <a class="brand" href="index.html"><span class="signature">Sushrut</span></a>
-
-      <nav class="nav-group">
-        <div class="label">Menu</div>
-        <a class="nav-item active" href="index.html"><span class="num">01</span> Home <span class="arrow">↗</span></a>
-        <a class="nav-item" href="about.html"><span class="num">02</span> About <span class="arrow">↗</span></a>
-        <a class="nav-item" href="projects.html"><span class="num">03</span> Projects <span class="arrow">↗</span></a>
-        <a class="nav-item" href="kind-words.html"><span class="num">04</span> Kind Words <span class="arrow">↗</span></a>
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Sushrut KM</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#talks">Talks</a>
+        <a href="#results">Results</a>
+        <a href="#writing">Writing</a>
+        <a class="nav-cta" href="mailto:sushrutmishra27@gmail.com">Get in touch</a>
       </nav>
+    </div>
+  </header>
 
-      <nav class="nav-group">
-        <div class="label">Resources</div>
-        <a class="nav-item" href="writing.html"><span class="num">05</span> Writing <span class="arrow">↗</span></a>
-        <a class="nav-item" href="toolkit.html"><span class="num">06</span> Skills &amp; Toolkit <span class="arrow">↗</span></a>
-        <a class="nav-item" href="reading.html"><span class="num">07</span> Reading List <span class="arrow">↗</span></a>
-      </nav>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="eyebrow">Developer turned marketer</p>
+            <h1>I grow developer-first companies with content, SEO and founder-led brand.</h1>
+            <p class="hero-sub">Head of Growth &amp; Content at Devable.ai. An ex-engineer who writes for developers, ranks content, and builds reach that turns into real pipeline.</p>
+            <div class="hero-cta">
+              <a class="btn btn-dark" href="mailto:sushrutmishra27@gmail.com">Get in touch</a>
+              <a class="btn btn-ghost" href="#work">See my work</a>
+            </div>
+            <div class="jumps">
+              <a href="#work">↳ Latest work</a>
+              <a href="#talks">Talks &amp; features</a>
+              <a href="#results">Results</a>
+              <a href="#writing">Writing</a>
+            </div>
+          </div>
+          <div class="hero-photo"><img src="assets/headshot.png" alt="Sushrut KM" /></div>
+        </div>
 
-      <nav class="nav-group">
-        <div class="label">Connect</div>
-        <a class="nav-item" href="mailto:sushrutmishra27@gmail.com"><span class="num">08</span> Contact <span class="arrow">↗</span></a>
-        <a class="nav-item" href="https://www.linkedin.com/in/sushrutkm/" target="_blank" rel="noopener"><span class="num"></span> LinkedIn <span class="arrow">↗</span></a>
-        <a class="nav-item" href="https://x.com/SushrutKM" target="_blank" rel="noopener"><span class="num"></span> X <span class="arrow">↗</span></a>
-      </nav>
-
-      <div class="sidebar-footer">
-        <div class="theme-toggle" id="themeToggle">
-          <button data-theme-set="light" class="active">light</button>
-          <button data-theme-set="dark">dark</button>
-          <button data-theme-set="auto">auto</button>
+        <div class="stats">
+          <div class="stat"><b>1.2M+</b><span>LinkedIn impressions / yr</span></div>
+          <div class="stat"><b>150M+</b><span>views generated</span></div>
+          <div class="stat"><b>100k+</b><span>followers grown for clients</span></div>
+          <div class="stat"><b>$3M+</b><span>pipeline built</span></div>
+          <div class="stat"><b>550+</b><span>newsletter subscribers</span></div>
+          <div class="stat"><b>4+ yrs</b><span>in developer marketing</span></div>
         </div>
       </div>
-    </aside>
+    </section>
 
-    <!-- ============ CONTENT ============ -->
-    <main class="content">
+    <!-- ============ WORK ============ -->
+    <section id="work" class="section">
       <div class="wrap">
-
-        <!-- KEYBOARD TIP BAR (top) -->
-        <div class="topbar">Press <kbd>1</kbd> to <kbd>8</kbd> to jump to any page.</div>
-
-        <!-- INTRO: big time-based greeting + small bio -->
-        <section class="intro">
-          <h1 class="intro-status" id="headline">Heads down, building right now.</h1>
-          <p class="intro-bio">I'm Sushrut KM, Head of Growth &amp; Content at <a href="https://devable.ai" target="_blank" rel="noopener">Devable.ai</a>.</p>
-        </section>
-
-        <!-- JOURNEY -->
-        <section>
-          <div class="section-head"><h2>Before a marketer, I was a developer. Here's how my career timeline looks.</h2></div>
-          <div class="journey">
-
-            <div class="j-card">
-              <div class="j-body">
-                <div class="yr">2021 to 2023</div>
-                <h3>Software Developer</h3>
-                <p>Wrote JavaScript, Apex, and created Salesforce dashboards. Learned how software actually gets shipped.</p>
-              </div>
-            </div>
-
-            <div class="j-card">
-              <div class="j-body">
-                <div class="yr">2023 onwards</div>
-                <h3>Shifted to marketing</h3>
-                <p>30+ freelance marketing gigs, two part-time roles, and one agency I built from the ground up (scaled it to $12k MRR).</p>
-              </div>
-            </div>
-
-            <div class="j-card">
-              <div class="j-body">
-                <div class="yr">2026 to present</div>
-                <h3>Head of Growth &amp; Content at Devable.ai</h3>
-                <p>Leading content and growth for developer-tool clients like LandingAI, OrqAI, Glean, and WebAI.</p>
-              </div>
-            </div>
-
-            <div class="j-card j-future">
-              <div class="gfx">
-                <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <svg class="trend" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
-                  <polyline class="trend-line" points="4,52 22,44 40,47 58,30 76,35 96,8" />
-                  <polyline class="trend-head" points="84,8 96,8 96,20" />
-                </svg>
-              </div>
-              <div class="future-label">Future loading</div>
-            </div>
-
+        <div class="section-head">
+          <div>
+            <h2>Selected work</h2>
+            <p>Content, benchmarks, and founder-led campaigns that moved real numbers.</p>
           </div>
-        </section>
+          <a class="more" href="projects.html">All projects ↗</a>
+        </div>
+        <div class="work-grid">
 
-        <!-- WORK PREVIEW -->
-        <section>
-          <div class="section-head"><h2>Selected work</h2><a class="viewall" href="projects.html">View all ↗</a></div>
-          <div class="pgrid">
-            <a class="pcard" href="https://bito.ai" target="_blank" rel="noopener">
-              <div class="thumb"><svg class="scene" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="180" fill="#0e1230"/><circle cx="60" cy="90" r="58" fill="#6c5ce7"/><path d="M60 32a58 58 0 0 1 0 116z" fill="#a29bfe"/><circle cx="150" cy="90" r="46" fill="#00cec9"/><path d="M150 44a46 46 0 0 0 0 92z" fill="#74b9ff"/><circle cx="245" cy="90" r="60" fill="#5b8cff"/><path d="M245 30a60 60 0 0 1 0 120z" fill="#a29bfe"/><circle cx="305" cy="90" r="34" fill="#00cec9"/></svg></div>
-              <div class="pbody">
-                <div class="tags"><span class="tag">Content</span><span class="tag">SEO</span><span class="tag dev">Dev advocacy</span></div>
-                <h3>Content engine at Bito</h3>
-                <p>First content marketing hire at Bito, building technical content, SEO, and developer-facing storytelling for the context layer for AI coding agents.</p>
-                <div class="metrics-list">
-                  <span><b>100+</b> blogs</span><span><b>16</b> newsletter editions</span><span><b>50+</b> founder-led posts</span><span><b>7</b> case studies</span><span><b>10+</b> comparison pages</span><span><b>500+</b> signups</span><span><b>10+</b> demos booked</span>
-                </div>
-              </div>
-            </a>
-            <a class="pcard" href="https://devable.ai/case-studies" target="_blank" rel="noopener">
-              <div class="thumb"><svg class="scene" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="320" height="180" fill="#0b1020"/><circle cx="70" cy="64" r="56" fill="#ff7a18"/><path d="M70 8a56 56 0 0 1 56 56H70Z" fill="#ff3d68"/><circle cx="200" cy="120" r="62" fill="#2b3bff"/><path d="M200 58a62 62 0 0 1 62 62H200Z" fill="#ff3d68"/><circle cx="280" cy="48" r="40" fill="#ffd23f"/><circle cx="120" cy="150" r="26" fill="#ff7a18"/></svg></div>
-              <div class="pbody">
-                <div class="tags"><span class="tag">GTM</span><span class="tag">Growth</span><span class="tag dev">Agency</span></div>
-                <h3>GTM &amp; growth at Devable.ai</h3>
-                <p>Devable.ai is a developer marketing agency, helping technical companies build content, community, and distribution systems.</p>
-                <div class="metrics-list">
-                  <span>handling <b>5+</b> clients</span><span><b>200+</b> posts &amp; blogs</span><span><b>2M+</b> Reddit impressions</span><span><b>100+</b> MQLs</span><span><b>5 clients &amp; $20K+ MRR</b> added in 60 days</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        <!-- WRITING PREVIEW -->
-        <section>
-          <div class="section-head"><h2>Recent writing</h2><a class="viewall" href="writing.html">View all ↗</a></div>
-          <a class="list-row" href="https://sushrut27.substack.com/p/thou-shalt-not-ship-slop" target="_blank" rel="noopener"><span class="lead-col">Substack</span><div class="body"><h3>Thou shalt not ship slop</h3></div><span class="ext">↗</span></a>
-          <a class="list-row" href="https://www.linkedin.com/posts/sushrutkm_how-we-grew-organic-traffic-from-1200mo-share-7488480621514764288-RVDc/" target="_blank" rel="noopener"><span class="lead-col">LinkedIn</span><div class="body"><h3>How we grew organic traffic from 1,200/mo</h3></div><span class="ext">↗</span></a>
-          <a class="list-row" href="https://www.linkedin.com/posts/sushrutkm_3-best-positioning-strategies-for-b2b-businesses-ugcPost-7488113868783665153-PRyu/" target="_blank" rel="noopener"><span class="lead-col">LinkedIn</span><div class="body"><h3>3 best positioning strategies for B2B businesses</h3></div><span class="ext">↗</span></a>
-          <a class="list-row" href="https://sushrut27.substack.com/p/what-clickup-understands-about-human" target="_blank" rel="noopener"><span class="lead-col">Substack</span><div class="body"><h3>What ClickUp understands about human-led branding that most brands still miss</h3></div><span class="ext">↗</span></a>
-          <a class="list-row" href="https://sushrut27.substack.com/p/human-writing-the-one-edge-no-founder" target="_blank" rel="noopener"><span class="lead-col">Substack</span><div class="body"><h3>Human writing: The one edge no founder can outsource</h3></div><span class="ext">↗</span></a>
-          <a class="list-row" href="https://www.linkedin.com/posts/sushrutkm_i-built-an-interactive-content-dashboard-ugcPost-7448701410965123072-_w00/" target="_blank" rel="noopener"><span class="lead-col">LinkedIn</span><div class="body"><h3>I built an interactive content dashboard with Claude that solves LinkedIn consistency for me.</h3></div><span class="ext">↗</span></a>
-        </section>
-
-        <!-- NOW -->
-        <section>
-          <div class="section-head"><h2>Currently</h2></div>
-          <div class="journey">
-            <div class="j-card"><div class="j-body"><span class="mono">// building</span><p>Head of growth at Devable. Working on content and growth for clients like LandingAI, OrqAI, Glean, WebAI, and more.</p></div></div>
-            <div class="j-card"><div class="j-body"><span class="mono">// writing</span><p>Posts on Substack about marketing.</p><p>Blogs on Bug0 around testing and QA.</p><p>Content on AI, SDLC, and technical design at Bito.</p></div></div>
-            <div class="j-card"><div class="j-body"><span class="mono">// learning</span><p>Developer advocacy.</p><p>Generative Engine Optimisation.</p><p>Landing page copywriting.</p></div></div>
-            <div class="j-card"><div class="j-body"><span class="mono">// off the clock</span><p>Learning to lift weights with proper form.</p><p>Cafe hopping during working hours.</p><p>Journaling every day.</p></div></div>
-          </div>
-        </section>
-
-        <!-- PERSONAL UPDATES -->
-        <section>
-          <div class="section-head"><h2>Personal and career updates</h2><a class="viewall" href="about.html">View all ↗</a></div>
-          <div class="updates">
-
-            <a class="update" href="https://devable.ai/case-studies" target="_blank" rel="noopener">
-              <span class="uicon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
-              <h3>Joined Devable.ai as Head of Growth</h3>
-              <p>Leading growth at Devable.ai. $20K+ MRR added in 60 days.</p>
-              <span class="udate">May 2026</span>
-            </a>
-
-            <div class="update">
-              <span class="uicon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9"/><path d="M6.4 6.9a8 8 0 1 0 11.2 0"/></svg></span>
-              <h3>Wound down VCMedia Labs</h3>
-              <p>Closed my agency after three good years.</p>
-              <span class="udate">Apr 2026</span>
+          <a class="work-card" href="https://bito.ai/benchmarks/swe-bench-pro-evaluation/" target="_blank" rel="noopener">
+            <div class="wc-media gmed g2"><span class="gmetric">60.8%</span></div>
+            <div class="wc-body">
+              <div class="wc-metric">// highest success rate on SWE-Bench Pro</div>
+              <h3>SWE-Bench Pro benchmark &amp; content at Bito</h3>
+              <p class="wc-meta">Bito · content &amp; SEO</p>
+              <p>Wrote the full SWE-Bench Pro evaluation report and landing page, plus the content engine behind Bito's AI code review.</p>
+              <span class="wc-link">Read the report ↗</span>
             </div>
+          </a>
 
-            <a class="update" href="https://bito.ai" target="_blank" rel="noopener">
-              <span class="uicon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
-              <h3>First content marketing manager at Bito</h3>
-              <p>Joined Bito to own content end to end.</p>
-              <span class="udate">Dec 2025</span>
-            </a>
-
-            <div class="update">
-              <span class="uicon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20S3.5 14.5 3.5 8.8A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8.5 1.8C20.5 14.5 12 20 12 20z"/></svg></span>
-              <h3>Got married to my wife</h3>
-              <p>Best decision of the lot.</p>
-              <span class="udate">Mar 2025</span>
+          <a class="work-card" href="https://devable.ai/case-studies" target="_blank" rel="noopener">
+            <div class="wc-media"><img src="assets/metrics-dashboard.png" alt="Devable client growth dashboards" loading="lazy" /></div>
+            <div class="wc-body">
+              <div class="wc-metric">// $20K+ MRR added in 60 days</div>
+              <h3>GTM &amp; growth at Devable.ai</h3>
+              <p class="wc-meta">Devable.ai · Head of Growth</p>
+              <p>Leading content and growth for developer-tool clients like LandingAI, OrqAI, Glean and WebAI.</p>
+              <span class="wc-link">See case studies ↗</span>
             </div>
+          </a>
 
-          </div>
-        </section>
+          <a class="work-card" href="https://www.linkedin.com/in/sushrutkm/" target="_blank" rel="noopener">
+            <div class="wc-media"><img src="assets/linkedin-impressions.png" alt="1.2M LinkedIn impressions" loading="lazy" /></div>
+            <div class="wc-body">
+              <div class="wc-metric">// 1.2M+ impressions, +1,997% in a year</div>
+              <h3>Building in public on LinkedIn &amp; X</h3>
+              <p class="wc-meta">LinkedIn · X</p>
+              <p>A year of founder-led writing that turned into inbound: discovery calls, clients, and a 550+ subscriber newsletter.</p>
+              <span class="wc-link">Follow along ↗</span>
+            </div>
+          </a>
 
-        <!-- ENDNOTE (simple closing line) -->
-        <section class="endnote">
-          <p>Want to work together? <a href="mailto:sushrutmishra27@gmail.com">Email me</a>, or find me on <a href="https://www.linkedin.com/in/sushrutkm/" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://x.com/SushrutKM" target="_blank" rel="noopener">X</a>.</p>
-          <div class="foot-meta">
-            <span class="mono">© 2026 Sushrut Mishra</span>
-            <span class="mono">designed &amp; coded by me... naturally.</span>
-          </div>
-        </section>
+          <a class="work-card" href="https://gamma.app/docs/90-demos-40-prospects-on-the-waitlist-3M-deal-amount-and-7-enterp-oe1ivrfd43u9eh5" target="_blank" rel="noopener">
+            <div class="wc-media gmed g3"><span class="gmetric">$3M</span></div>
+            <div class="wc-body">
+              <div class="wc-metric">// 90 demos · 7 enterprise deals</div>
+              <h3>Virtu3D AI — founder-led growth</h3>
+              <p class="wc-meta">VCMedia Labs · case study</p>
+              <p>Drove 90 demos, 40 prospects on the waitlist, 7 enterprise deals and $3M in pipeline for a 3D AI startup.</p>
+              <span class="wc-link">Read the case study ↗</span>
+            </div>
+          </a>
 
+          <a class="work-card" href="https://gamma.app/docs/How-we-helped-our-client-add-10000-followers-and-get-1088000-impr-llbd7pjuszm9c33" target="_blank" rel="noopener">
+            <div class="wc-media gmed g4"><span class="gmetric">+10k</span></div>
+            <div class="wc-body">
+              <div class="wc-metric">// 1,088,000 impressions</div>
+              <h3>Chirag — founder-brand growth</h3>
+              <p class="wc-meta">VCMedia Labs · case study</p>
+              <p>Grew a founder's personal brand by 10,000 followers and over a million impressions.</p>
+              <span class="wc-link">Read the case study ↗</span>
+            </div>
+          </a>
+
+          <a class="work-card" href="https://gamma.app/docs/Case-Study-Jake-How-we-helped-our-client-add-an-extra-22500-worth-hf5x8xq8pkvy4tj" target="_blank" rel="noopener">
+            <div class="wc-media gmed g5"><span class="gmetric">+$22.5k</span></div>
+            <div class="wc-body">
+              <div class="wc-metric">// extra pipeline from founder content</div>
+              <h3>Jake, Pilot West</h3>
+              <p class="wc-meta">VCMedia Labs · case study</p>
+              <p>Founder-led content that added an extra $22,500 in pipeline through consistent posting.</p>
+              <span class="wc-link">Read the case study ↗</span>
+            </div>
+          </a>
+
+        </div>
       </div>
-    </main>
-  </div>
-  <script src="script.js"></script>
+    </section>
+
+    <!-- ============ TALKS ============ -->
+    <section id="talks" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Talks &amp; features</h2><p>On stage, on camera, and featured to large developer audiences.</p></div>
+        </div>
+        <div class="talks-grid">
+
+          <a class="talk-card" href="https://www.youtube.com/watch?v=485jyZgb8Kk" target="_blank" rel="noopener">
+            <div class="tc-media"><img src="assets/web3conf-talk.jpg" alt="Sushrut speaking at Web3Conf India" loading="lazy" /></div>
+            <div class="tc-body">
+              <span class="tag">Speaker · 2023</span>
+              <h3>Web3Conf India</h3>
+              <p>How developer-creators are shaping the Web3 ecosystem, at India's biggest Web3 conference.</p>
+            </div>
+          </a>
+
+          <a class="talk-card" href="https://lnkd.in/d54EAxtw" target="_blank" rel="noopener">
+            <div class="tc-media"><img src="assets/press-satish.webp" alt="Featured on Satish K Videos" loading="lazy" /></div>
+            <div class="tc-body">
+              <span class="tag">Featured · 2M subs</span>
+              <h3>Satish K Videos</h3>
+              <p>My content-marketing journey, featured to a 2M-subscriber developer audience.</p>
+            </div>
+          </a>
+
+          <a class="talk-card" href="https://www.youtube.com/watch?v=NviJBxtcHME" target="_blank" rel="noopener">
+            <div class="tc-media"><img src="https://img.youtube.com/vi/NviJBxtcHME/hqdefault.jpg" alt="Bito product walkthrough videos" loading="lazy" /></div>
+            <div class="tc-body">
+              <span class="tag">Video</span>
+              <h3>Bito product walkthroughs</h3>
+              <p>Product walkthroughs, demos and comparison videos, recorded hands-on.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section id="results" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Results &amp; reactions</h2><p>The numbers, and what the people I work with actually say.</p></div>
+          <a class="more" href="kind-words.html">All kind words ↗</a>
+        </div>
+        <div class="result-tiles">
+          <div class="rt"><b>$3M</b><span>pipeline built for clients</span></div>
+          <div class="rt"><b>1.2M+</b><span>LinkedIn impressions this year</span></div>
+          <div class="rt"><b>+1,997%</b><span>impression growth</span></div>
+          <div class="rt"><b>500+</b><span>calls booked for clients</span></div>
+        </div>
+        <div class="praise-grid">
+          <figure><img src="assets/praise-alexis.png" alt="Client praise from Alexis Kantor" loading="lazy" /></figure>
+          <figure><img src="assets/viral-post.png" alt="Viral LinkedIn post engagement" loading="lazy" /></figure>
+          <figure><img src="assets/praise-engagement.png" alt="Client: engagement much higher than usual" loading="lazy" /></figure>
+          <figure><img src="assets/praise-client.png" alt="Client: first organic client from LinkedIn" loading="lazy" /></figure>
+          <figure><img src="assets/praise-organic.png" alt="First organic discovery call" loading="lazy" /></figure>
+          <figure><img src="assets/praise-calls.png" alt="Client: calls booked" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WRITING ============ -->
+    <section id="writing" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Writing</h2><p>Newsletter, LinkedIn, X, and the technical pieces I write for companies.</p></div>
+          <a class="more" href="writing.html">Read all ↗</a>
+        </div>
+        <div class="writing-grid">
+
+          <a class="wr-card" href="https://sushrut27.substack.com/p/thou-shalt-not-ship-slop" target="_blank" rel="noopener">
+            <div class="wr-media g1"><span>Substack</span></div>
+            <div class="wr-body"><div class="wr-plat">Newsletter · 2026</div><h3>Thou shalt not ship slop</h3><span class="wr-link">Read ↗</span></div>
+          </a>
+
+          <a class="wr-card" href="https://www.linkedin.com/posts/sushrutkm_how-we-grew-organic-traffic-from-1200mo-share-7488480621514764288-RVDc/" target="_blank" rel="noopener">
+            <div class="wr-media g6"><span>LinkedIn</span></div>
+            <div class="wr-body"><div class="wr-plat">LinkedIn · 2026</div><h3>How we grew organic traffic from 1,200/mo</h3><span class="wr-link">Read ↗</span></div>
+          </a>
+
+          <a class="wr-card" href="https://bito.ai/benchmarks/swe-bench-pro-evaluation/" target="_blank" rel="noopener">
+            <div class="wr-media g2"><span>Bito</span></div>
+            <div class="wr-body"><div class="wr-plat">Report · 2026</div><h3>SWE-Bench Pro evaluation report</h3><span class="wr-link">Read ↗</span></div>
+          </a>
+
+          <a class="wr-card" href="https://bug0.com/blog/vibe-coding-qa-problem" target="_blank" rel="noopener">
+            <div class="wr-media g3"><span>Bug0</span></div>
+            <div class="wr-body"><div class="wr-plat">Blog · 2026</div><h3>Vibe coding has a QA problem nobody priced in</h3><span class="wr-link">Read ↗</span></div>
+          </a>
+
+          <a class="wr-card" href="https://hutte.io/trails/salesforce-flow/" target="_blank" rel="noopener">
+            <div class="wr-media g4"><span>Hutte</span></div>
+            <div class="wr-body"><div class="wr-plat">Guide · 2023</div><h3>The complete guide to Salesforce Flow</h3><span class="wr-link">Read ↗</span></div>
+          </a>
+
+          <a class="wr-card" href="https://www.testmuai.com/jest/" target="_blank" rel="noopener">
+            <div class="wr-media g5"><span>TestMu AI</span></div>
+            <div class="wr-body"><div class="wr-plat">Guide · 2022</div><h3>A complete guide to Jest testing</h3><span class="wr-link">Read ↗</span></div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="f-lead">Let's work together.</div>
+          <p class="f-note">Head of Growth &amp; Content at Devable.ai. Always up for content, developer marketing, and growth that actually ships.</p>
+        </div>
+        <div>
+          <h4>Pages</h4>
+          <a href="#work">Work</a>
+          <a href="writing.html">Writing</a>
+          <a href="about.html">About</a>
+          <a href="kind-words.html">Kind words</a>
+          <a href="toolkit.html">Skills &amp; toolkit</a>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <a href="https://www.linkedin.com/in/sushrutkm/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://x.com/SushrutKM" target="_blank" rel="noopener">X</a>
+          <a href="https://github.com/sushrutmishra27" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://sushrut27.substack.com/" target="_blank" rel="noopener">Substack</a>
+        </div>
+        <div>
+          <h4>Say hi</h4>
+          <a href="mailto:sushrutmishra27@gmail.com">sushrutmishra27@gmail.com</a>
+          <a href="https://sushrut27.substack.com/" target="_blank" rel="noopener">Developer Turned Marketer →</a>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>© 2026 Sushrut KM</span>
+        <span>designed &amp; coded by me</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+    if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open')});
+      l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open')})});}
+  </script>
 </body>
 </html>
