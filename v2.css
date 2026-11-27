@@ -66,8 +66,15 @@ img{display:block;max-width:100%}
 .work-card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.07)}
 .wc-media{aspect-ratio:16/9;overflow:hidden;background:var(--elev);border-bottom:1px solid var(--line);display:grid;place-items:center}
 .wc-media img{width:100%;height:100%;object-fit:cover}
-.wc-media.gmed{position:relative}
-.wc-media .gmetric{position:relative;z-index:1;color:#fff;font-weight:800;font-size:1.9rem;letter-spacing:-.02em;text-shadow:0 1px 10px rgba(0,0,0,.25);padding:0 20px;text-align:center}
+.wc-media img{transition:transform .5s ease}
+.work-card:hover .wc-media img{transform:scale(1.04)}
+.wc-media.gmed{position:relative;overflow:hidden}
+.wc-media.gmed::before,.wc-media.gmed::after{content:"";position:absolute;width:75%;height:150%;border-radius:45%;filter:blur(28px);mix-blend-mode:screen;z-index:0}
+.wc-media.gmed::before{background:rgba(255,255,255,.75);left:-12%;top:-25%;animation:drift1 11s ease-in-out infinite}
+.wc-media.gmed::after{background:rgba(255,255,255,.45);right:-12%;bottom:-25%;animation:drift2 14s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(34%,18%) scale(1.25)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1.15)}50%{transform:translate(-28%,-16%) scale(.9)}}
+.wc-media .gmetric{position:relative;z-index:2;color:#fff;font-weight:800;font-size:1.9rem;letter-spacing:-.02em;text-shadow:0 1px 10px rgba(0,0,0,.3);padding:0 20px;text-align:center}
 .wc-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .wc-metric{font-family:var(--mono);font-size:.76rem;color:var(--accent-ink);font-weight:600;margin-bottom:9px}
 .wc-body h3{font-size:1.05rem;font-weight:700;line-height:1.3}
