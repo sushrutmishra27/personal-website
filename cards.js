@@ -1,5 +1,5 @@
 /* ============================================================
-   Isometric dot-matrix card scenes — dark stage, green signal.
+   Isometric dot-matrix card scenes - dark stage, green signal.
    Pure canvas, continuous motion. No dependencies.
    ============================================================ */
 (function () {
@@ -43,17 +43,17 @@
       ctx.fillRect(p[0] - dot / 2, p[1] - dot / 2, dot, dot);
     }
 
-    // right face (x = ox+w) — darkest
+    // right face (x = ox+w) - darkest
     for (a = 0; a <= d + 1e-6; a += step) for (b = 0; b <= h + 1e-6; b += step) {
       i = Math.round(a / step); j = Math.round(b / step);
       pt(ox + w, oy + a, b, 0.52, i, j, 148);
     }
-    // left face (y = oy+d) — mid
+    // left face (y = oy+d) - mid
     for (a = 0; a <= w + 1e-6; a += step) for (b = 0; b <= h + 1e-6; b += step) {
       i = Math.round(a / step); j = Math.round(b / step);
       pt(ox + a, oy + d, b, 0.74, i, j, 198);
     }
-    // top face (z = h) — brightest
+    // top face (z = h) - brightest
     for (a = 0; a <= w + 1e-6; a += step) for (b = 0; b <= d + 1e-6; b += step) {
       i = Math.round(a / step); j = Math.round(b / step);
       pt(ox + a, oy + a * 0 + b, h, 1.0, i, j, 238);
@@ -88,17 +88,35 @@
     ctx.fillStyle = grd; ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill();
   }
 
+  // number label above a tower, with a dashed connector line down to its top
+  function towerLabel(ctx, cx, topY, numY, num, sub, green) {
+    var col = green ? greenA(0.95) : 'rgba(216,222,229,0.95)';
+    ctx.strokeStyle = green ? greenA(0.55) : 'rgba(176,184,192,0.4)';
+    ctx.lineWidth = 1.2; ctx.setLineDash([2, 3]);
+    ctx.beginPath(); ctx.moveTo(cx, numY + 20); ctx.lineTo(cx, topY - 3); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = col; ctx.beginPath(); ctx.arc(cx, topY - 3, 2.4, 0, 6.2832); ctx.fill();
+    ctx.textAlign = 'center';
+    ctx.font = '700 16px "JetBrains Mono", ui-monospace, monospace';
+    ctx.fillStyle = col; ctx.fillText(num, cx, numY);
+    ctx.font = '600 9px "JetBrains Mono", ui-monospace, monospace';
+    ctx.fillStyle = 'rgba(150,160,170,0.92)'; ctx.fillText(sub, cx, numY + 13);
+  }
+
   /* ---------------- SCENES ---------------- */
   var scenes = {};
 
-  // Bito: two dithered towers, base agent vs AI Architect (taller, green scan)
+  // Bito: two dithered towers, base agent vs AI Architect (taller, green scan),
+  // each capped with its real SWE-Bench Pro score and a connector line.
   scenes.bito = function (ctx, t, W, H) {
-    var u = H / 16;
-    var oA = { cx: W * 0.355, cy: H * 0.84 + Math.sin(t * 0.0016) * 2.2, u: u };
-    ditherBox(ctx, oA, 0, 0, 2.3, 2.3, 3.5, t, { ph: 0 });
-    var hB = 5.0, oB = { cx: W * 0.655, cy: H * 0.84 + Math.sin(t * 0.0016 + 1.1) * 2.2, u: u };
+    var u = H / 16, hA = 3.5, hB = 5.0;
+    var oA = { cx: W * 0.34, cy: H * 0.87 + Math.sin(t * 0.0016) * 2.0, u: u };
+    ditherBox(ctx, oA, 0, 0, 2.3, 2.3, hA, t, { ph: 0 });
+    var oB = { cx: W * 0.66, cy: H * 0.87 + Math.sin(t * 0.0016 + 1.1) * 2.0, u: u };
     var scanZ = (((t * 0.00020) % 1) + 1) % 1 * (hB + 1.4);
     ditherBox(ctx, oB, 0, 0, 2.3, 2.3, hB, t, { ph: 1.3, scanZ: scanZ, band: 0.9 });
+    towerLabel(ctx, oA.cx, iso(oA, 1.15, 1.15, hA)[1], H * 0.19, '51.9%', 'base agent', false);
+    towerLabel(ctx, oB.cx, iso(oB, 1.15, 1.15, hB)[1], H * 0.19, '70.1%', '+ AI Architect', true);
   };
 
   // Devable: central query node -> 4 channel pads, pulsing wires
@@ -196,6 +214,94 @@
     ctx.fillStyle = grd; ctx.beginPath(); ctx.arc(px, py, 9, 0, 6.2832); ctx.fill();
   };
 
+  /* ---------- playful mini-scenes for Writing cards (flat, lively) ---------- */
+  function rr(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+
+  // "Thou shalt not ship slop": a quality gate; good blocks pass green, slop is rejected
+  scenes['w-slop'] = function (ctx, t, W, H) {
+    var gateX = W * 0.58, midY = H * 0.5, n = 6, span = W * 1.05;
+    ctx.strokeStyle = greenA(0.45); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(gateX, H * 0.22); ctx.lineTo(gateX, H * 0.78); ctx.stroke();
+    for (var i = 0; i < n; i++) {
+      var x = (((t * 0.05) + (i * span / n)) % span) - 12;
+      var slop = (i % 3 === 1), past = x > gateX, s = 9, y = midY + Math.sin(t * 0.003 + i * 1.3) * 5;
+      if (slop && past) { ctx.globalAlpha = Math.max(0, 1 - (x - gateX) / (W * 0.33)); ctx.fillStyle = 'rgba(150,160,170,.7)'; y += (x - gateX) * 0.4; }
+      else { ctx.globalAlpha = 1; ctx.fillStyle = past ? greenA(0.9) : 'rgba(170,178,186,.6)'; }
+      rr(ctx, x - s / 2, y - s / 2, s, s, 2.5); ctx.fill();
+      if (past && !slop) { ctx.strokeStyle = greenA(0.95); ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(x - 2.4, y); ctx.lineTo(x - 0.4, y + 2.2); ctx.lineTo(x + 2.6, y - 2.4); ctx.stroke(); }
+      ctx.globalAlpha = 1;
+    }
+  };
+
+  // "Grew organic traffic from 1,200/mo": climbing sparkline with a running pulse
+  scenes['w-traffic'] = function (ctx, t, W, H) {
+    var n = 7, baseY = H * 0.8, topY = H * 0.2, pts = [];
+    for (var i = 0; i <= n; i++) { var pr = i / n; pts.push([W * (0.08 + pr * 0.84), baseY - (baseY - topY) * pr * pr + Math.sin(t * 0.002 + i) * 3]); }
+    ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+    for (var m = 1; m <= n; m++) ctx.lineTo(pts[m][0], pts[m][1]);
+    ctx.lineTo(pts[n][0], baseY); ctx.lineTo(pts[0][0], baseY); ctx.closePath();
+    ctx.fillStyle = greenA(0.1); ctx.fill();
+    ctx.strokeStyle = greenA(0.8); ctx.lineWidth = 2; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+    for (m = 1; m <= n; m++) ctx.lineTo(pts[m][0], pts[m][1]); ctx.stroke();
+    var seg = (t * 0.001) % n, si = Math.floor(seg), f = seg - si, pa = pts[si], pb = pts[si + 1] || pts[si];
+    var px = pa[0] + (pb[0] - pa[0]) * f, py = pa[1] + (pb[1] - pa[1]) * f;
+    var g = ctx.createRadialGradient(px, py, 0, px, py, 7); g.addColorStop(0, greenA(1)); g.addColorStop(1, greenA(0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, 7, 0, 6.2832); ctx.fill();
+  };
+
+  // "SWE-Bench Pro report": two mini bars, the AI Architect one taller and green
+  scenes['w-bench'] = function (ctx, t, W, H) {
+    var baseY = H * 0.82, bw = W * 0.15;
+    [{ x: W * 0.32, h: H * 0.34, g: false }, { x: W * 0.64, h: H * 0.58, g: true }].forEach(function (b, i) {
+      var h = b.h * (0.62 + 0.38 * Math.abs(Math.sin(t * 0.0015 + i)));
+      ctx.fillStyle = b.g ? greenA(0.85) : 'rgba(150,160,170,.55)';
+      rr(ctx, b.x - bw / 2, baseY - h, bw, h, 3); ctx.fill();
+    });
+    ctx.strokeStyle = 'rgba(120,130,140,.4)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(W * 0.14, baseY); ctx.lineTo(W * 0.86, baseY); ctx.stroke();
+  };
+
+  // "Vibe coding has a QA problem": a bug in the stream gets caught (green ring)
+  scenes['w-qa'] = function (ctx, t, W, H) {
+    var n = 8, midY = H * 0.5, span = W * 1.05;
+    for (var i = 0; i < n; i++) {
+      var x = (((t * 0.05) + (i * span / n)) % span) - 10, bug = (i % 4 === 2), y = midY + Math.sin(t * 0.003 + i) * 6;
+      ctx.fillStyle = bug ? 'rgba(232,112,112,.9)' : 'rgba(160,168,176,.55)';
+      ctx.beginPath(); ctx.arc(x, y, 4, 0, 6.2832); ctx.fill();
+      if (bug) { var ring = 5 + 2 * Math.abs(Math.sin(t * 0.004 + i)); ctx.strokeStyle = greenA(0.9); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(x, y, ring, 0, 6.2832); ctx.stroke(); }
+    }
+  };
+
+  // "Salesforce Flow guide": a small node flow with a pulse traveling through
+  scenes['w-flow'] = function (ctx, t, W, H) {
+    var nodes = [[W * 0.16, H * 0.5], [W * 0.42, H * 0.28], [W * 0.42, H * 0.72], [W * 0.68, H * 0.5], [W * 0.88, H * 0.5]];
+    var edges = [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4]];
+    edges.forEach(function (e, i) { wire(ctx, nodes[e[0]], nodes[e[1]], t, i * 0.2, 0.0009); });
+    nodes.forEach(function (nd, i) {
+      ctx.fillStyle = (Math.floor(t * 0.001) % nodes.length) === i ? greenA(0.95) : 'rgba(170,178,186,.72)';
+      ctx.beginPath(); ctx.arc(nd[0], nd[1], 5, 0, 6.2832); ctx.fill();
+    });
+  };
+
+  // "Jest testing guide": a test checklist ticking green, row by row, on a loop
+  scenes['w-test'] = function (ctx, t, W, H) {
+    var rows = 3, x0 = W * 0.2, y0 = H * 0.3, gap = H * 0.22, lineW = W * 0.48;
+    for (var i = 0; i < rows; i++) {
+      var y = y0 + i * gap, lit = ((t * 0.0012) % (rows + 1)) > i + 0.5;
+      ctx.strokeStyle = lit ? greenA(0.9) : 'rgba(140,150,160,.5)'; ctx.lineWidth = 1.6;
+      rr(ctx, x0 - 11, y - 6, 12, 12, 3); ctx.stroke();
+      if (lit) { ctx.strokeStyle = greenA(0.95); ctx.beginPath(); ctx.moveTo(x0 - 9, y); ctx.lineTo(x0 - 6, y + 3); ctx.lineTo(x0 - 1, y - 3); ctx.stroke(); }
+      ctx.fillStyle = lit ? greenA(0.3) : 'rgba(120,130,140,.3)';
+      rr(ctx, x0 + 9, y - 3, lineW * (0.6 + 0.4 * ((i + 1) / rows)), 6, 3); ctx.fill();
+    }
+  };
+
   /* ---------------- RUNTIME ---------------- */
   function setup(el) {
     var name = el.getAttribute('data-scene');
@@ -232,7 +338,7 @@
   }
 
   function init() {
-    document.querySelectorAll('.wc-media.scene[data-scene]').forEach(setup);
+    document.querySelectorAll('.scene[data-scene]').forEach(setup);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
