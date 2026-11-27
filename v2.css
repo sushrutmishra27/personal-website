@@ -80,6 +80,35 @@ img{display:block;max-width:100%}
 .work-grid .work-card:nth-of-type(5) .gridtile::before{animation-delay:-1.3s}
 .work-grid .work-card:nth-of-type(6) .gridtile::before{animation-delay:-3.2s}
 .wc-media.gridtile .gmetric{position:relative;z-index:2;color:var(--ink);font-weight:800;font-size:2rem;letter-spacing:-.03em;padding:0 20px;text-align:center}
+
+/* ---------- CARD MOTION GRAPHICS (animated inline SVG, play on reveal) ---------- */
+.wc-media.viz{aspect-ratio:16/9;display:block;position:relative;overflow:hidden;
+  background-color:#fff;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:30px 30px}
+.mviz{width:100%;height:100%;display:block;font-family:var(--sans)}
+.mviz text{fill:var(--ink)}
+.mviz .lbl{font-family:var(--mono);font-size:9px;fill:var(--faint);font-weight:600;letter-spacing:.02em}
+.mviz .big{font-weight:800;letter-spacing:-.02em}
+.mviz .grn{fill:var(--accent)}
+.mviz .bar{transform:scaleY(0);transform-box:fill-box;transform-origin:center bottom}
+.work-card.in .mviz .bar{animation:barUp .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes barUp{to{transform:scaleY(1)}}
+.mviz .ln{stroke-dasharray:1;stroke-dashoffset:1}
+.work-card.in .mviz .ln{animation:lnDraw 1.4s ease forwards}
+@keyframes lnDraw{to{stroke-dashoffset:0}}
+.mviz .pp{opacity:0;transform:scale(.55);transform-box:fill-box;transform-origin:center}
+.work-card.in .mviz .pp{animation:ppIn .55s cubic-bezier(.2,.9,.3,1.25) forwards}
+@keyframes ppIn{0%{opacity:0;transform:scale(.55)}70%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+.mviz .area{opacity:0}
+.work-card.in .mviz .area{animation:areaIn .8s ease forwards}
+@keyframes areaIn{to{opacity:.12}}
+.work-card.in .mviz .dot{animation:dotP 1.9s ease-in-out infinite}
+@keyframes dotP{0%,100%{r:4}50%{r:6.5}}
+@media (prefers-reduced-motion:reduce){
+  .mviz .bar,.mviz .ln,.mviz .pp,.mviz .area{animation:none!important;transform:none!important;opacity:1!important;stroke-dashoffset:0!important}
+  .mviz .area{opacity:.12!important}
+}
 .wc-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .wc-metric{font-family:var(--mono);font-size:.76rem;color:var(--accent-ink);font-weight:600;margin-bottom:9px}
 .wc-body h3{font-size:1.05rem;font-weight:700;line-height:1.3}
