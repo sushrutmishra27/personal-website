@@ -74,7 +74,7 @@
         <div class="work-grid">
 
           <a class="work-card" href="https://bito.ai/benchmarks/swe-bench-pro-evaluation/" target="_blank" rel="noopener">
-            <div class="wc-media gmed g2"><span class="gmetric">60.8%</span></div>
+            <div class="wc-media gridtile"><span class="gmetric">60.8%</span></div>
             <div class="wc-body">
               <div class="wc-metric">// highest success rate on SWE-Bench Pro</div>
               <h3>SWE-Bench Pro benchmark &amp; content at Bito</h3>
@@ -85,7 +85,7 @@
           </a>
 
           <a class="work-card" href="https://devable.ai/case-studies" target="_blank" rel="noopener">
-            <div class="wc-media gmed g6"><span class="gmetric">$80M+</span></div>
+            <div class="wc-media gridtile"><span class="gmetric">$80M+</span></div>
             <div class="wc-body">
               <div class="wc-metric">// SEO, GEO &amp; social for $80M+ funded companies</div>
               <h3>GTM &amp; growth at Devable.ai</h3>
@@ -118,7 +118,7 @@
           </a>
 
           <a class="work-card" href="https://gamma.app/docs/How-we-helped-our-client-add-10000-followers-and-get-1088000-impr-llbd7pjuszm9c33" target="_blank" rel="noopener">
-            <div class="wc-media gmed g4"><span class="gmetric">+10k</span></div>
+            <div class="wc-media gridtile"><span class="gmetric">+10k</span></div>
             <div class="wc-body">
               <div class="wc-metric">// 1,088,000 impressions</div>
               <h3>Chirag — founder-brand growth</h3>
@@ -129,7 +129,7 @@
           </a>
 
           <a class="work-card" href="https://gamma.app/docs/Case-Study-Jake-How-we-helped-our-client-add-an-extra-22500-worth-hf5x8xq8pkvy4tj" target="_blank" rel="noopener">
-            <div class="wc-media gmed g5"><span class="gmetric">+$22.5k</span></div>
+            <div class="wc-media gridtile"><span class="gmetric">+$22.5k</span></div>
             <div class="wc-body">
               <div class="wc-metric">// extra pipeline from founder content</div>
               <h3>Jake, Pilot West</h3>
@@ -216,32 +216,32 @@
         <div class="writing-grid">
 
           <a class="wr-card" href="https://sushrut27.substack.com/p/thou-shalt-not-ship-slop" target="_blank" rel="noopener">
-            <div class="wr-media g1"><span>Substack</span></div>
+            <div class="wr-media gridtile"><span>Substack</span></div>
             <div class="wr-body"><div class="wr-plat">Newsletter · 2026</div><h3>Thou shalt not ship slop</h3><span class="wr-link">Read ↗</span></div>
           </a>
 
           <a class="wr-card" href="https://www.linkedin.com/posts/sushrutkm_how-we-grew-organic-traffic-from-1200mo-share-7488480621514764288-RVDc/" target="_blank" rel="noopener">
-            <div class="wr-media g6"><span>LinkedIn</span></div>
+            <div class="wr-media gridtile"><span>LinkedIn</span></div>
             <div class="wr-body"><div class="wr-plat">LinkedIn · 2026</div><h3>How we grew organic traffic from 1,200/mo</h3><span class="wr-link">Read ↗</span></div>
           </a>
 
           <a class="wr-card" href="https://bito.ai/benchmarks/swe-bench-pro-evaluation/" target="_blank" rel="noopener">
-            <div class="wr-media g2"><span>Bito</span></div>
+            <div class="wr-media gridtile"><span>Bito</span></div>
             <div class="wr-body"><div class="wr-plat">Report · 2026</div><h3>SWE-Bench Pro evaluation report</h3><span class="wr-link">Read ↗</span></div>
           </a>
 
           <a class="wr-card" href="https://bug0.com/blog/vibe-coding-qa-problem" target="_blank" rel="noopener">
-            <div class="wr-media g3"><span>Bug0</span></div>
+            <div class="wr-media gridtile"><span>Bug0</span></div>
             <div class="wr-body"><div class="wr-plat">Blog · 2026</div><h3>Vibe coding has a QA problem nobody priced in</h3><span class="wr-link">Read ↗</span></div>
           </a>
 
           <a class="wr-card" href="https://hutte.io/trails/salesforce-flow/" target="_blank" rel="noopener">
-            <div class="wr-media g4"><span>Hutte</span></div>
+            <div class="wr-media gridtile"><span>Hutte</span></div>
             <div class="wr-body"><div class="wr-plat">Guide · 2023</div><h3>The complete guide to Salesforce Flow</h3><span class="wr-link">Read ↗</span></div>
           </a>
 
           <a class="wr-card" href="https://www.testmuai.com/jest/" target="_blank" rel="noopener">
-            <div class="wr-media g5"><span>TestMu AI</span></div>
+            <div class="wr-media gridtile"><span>TestMu AI</span></div>
             <div class="wr-body"><div class="wr-plat">Guide · 2022</div><h3>A complete guide to Jest testing</h3><span class="wr-link">Read ↗</span></div>
           </a>
 
@@ -290,6 +290,9 @@
     var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
     if(t&&l){t.addEventListener('click',function(){l.classList.toggle('open')});
       l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){l.classList.remove('open')})});}
+    // scroll-reveal motion
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.work-card,.talk-card,.wr-card,.rt,.stat,.praise-grid figure,.section-head').forEach(function(el){el.classList.add('reveal');io.observe(el);});
   </script>
 </body>
 </html>

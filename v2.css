@@ -68,13 +68,18 @@ img{display:block;max-width:100%}
 .wc-media img{width:100%;height:100%;object-fit:cover}
 .wc-media img{transition:transform .5s ease}
 .work-card:hover .wc-media img{transform:scale(1.04)}
-.wc-media.gmed{position:relative;overflow:hidden}
-.wc-media.gmed::before,.wc-media.gmed::after{content:"";position:absolute;width:75%;height:150%;border-radius:45%;filter:blur(28px);mix-blend-mode:screen;z-index:0}
-.wc-media.gmed::before{background:rgba(255,255,255,.75);left:-12%;top:-25%;animation:drift1 11s ease-in-out infinite}
-.wc-media.gmed::after{background:rgba(255,255,255,.45);right:-12%;bottom:-25%;animation:drift2 14s ease-in-out infinite}
-@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(34%,18%) scale(1.25)}}
-@keyframes drift2{0%,100%{transform:translate(0,0) scale(1.15)}50%{transform:translate(-28%,-16%) scale(.9)}}
-.wc-media .gmetric{position:relative;z-index:2;color:#fff;font-weight:800;font-size:1.9rem;letter-spacing:-.02em;text-shadow:0 1px 10px rgba(0,0,0,.3);padding:0 20px;text-align:center}
+/* clean animated grid tile — light, monochrome, with a sweeping green line */
+.gridtile{position:relative;overflow:hidden;background-color:var(--elev);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:26px 26px;animation:gridpan 28s linear infinite}
+@keyframes gridpan{to{background-position:0 26px}}
+.gridtile::before{content:"";position:absolute;top:-12%;bottom:-12%;left:-5%;width:2px;background:var(--accent);box-shadow:0 0 16px 1px var(--accent);opacity:.5;animation:sweep 6s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes sweep{0%{left:-5%}100%{left:105%}}
+.work-grid .work-card:nth-of-type(2) .gridtile::before{animation-delay:-2.1s}
+.work-grid .work-card:nth-of-type(3) .gridtile::before{animation-delay:-4s}
+.work-grid .work-card:nth-of-type(5) .gridtile::before{animation-delay:-1.3s}
+.work-grid .work-card:nth-of-type(6) .gridtile::before{animation-delay:-3.2s}
+.wc-media.gridtile .gmetric{position:relative;z-index:2;color:var(--ink);font-weight:800;font-size:2rem;letter-spacing:-.03em;padding:0 20px;text-align:center}
 .wc-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .wc-metric{font-family:var(--mono);font-size:.76rem;color:var(--accent-ink);font-weight:600;margin-bottom:9px}
 .wc-body h3{font-size:1.05rem;font-weight:700;line-height:1.3}
@@ -83,13 +88,9 @@ img{display:block;max-width:100%}
 .wc-link{margin-top:14px;font-size:.85rem;font-weight:600;color:var(--ink)}
 .work-card:hover .wc-link{color:var(--accent-ink)}
 
-/* gradient media fills */
-.g1{background:radial-gradient(120% 120% at 15% 20%,#ff8a5b,transparent 55%),linear-gradient(135deg,#ff5d8f,#8a4fff)}
-.g2{background:radial-gradient(120% 120% at 80% 20%,#4dd4ff,transparent 55%),linear-gradient(135deg,#18e1c3,#4361ee)}
-.g3{background:radial-gradient(120% 120% at 80% 20%,#ff6ec7,transparent 55%),linear-gradient(135deg,#7b2ff7,#f107a3)}
-.g4{background:radial-gradient(120% 120% at 25% 80%,#b8f24d,transparent 55%),linear-gradient(135deg,#00b894,#00cec9)}
-.g5{background:radial-gradient(120% 120% at 20% 20%,#ffd23f,transparent 50%),linear-gradient(135deg,#ff7b54,#9b5de5)}
-.g6{background:radial-gradient(120% 120% at 80% 25%,#56ccf2,transparent 55%),linear-gradient(135deg,#2f80ed,#3a0ca3)}
+/* scroll reveal motion */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
 
 /* ---------- TALKS ---------- */
 .talks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -116,8 +117,8 @@ img{display:block;max-width:100%}
 .writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .wr-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);display:flex;flex-direction:column;transition:var(--t)}
 .wr-card:hover{border-color:var(--ink);transform:translateY(-3px)}
-.wr-media{aspect-ratio:16/8;display:grid;place-items:center;color:#fff}
-.wr-media span{font-family:var(--mono);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-shadow:0 1px 8px rgba(0,0,0,.25)}
+.wr-media{aspect-ratio:16/8;display:grid;place-items:center}
+.wr-media span{position:relative;z-index:2;font-family:var(--mono);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-ink)}
 .wr-body{padding:15px 17px;display:flex;flex-direction:column;flex:1}
 .wr-plat{font-family:var(--mono);font-size:.7rem;color:var(--faint);margin-bottom:7px}
 .wr-body h3{font-size:.95rem;font-weight:600;line-height:1.35}
